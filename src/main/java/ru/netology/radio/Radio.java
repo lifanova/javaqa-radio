@@ -1,6 +1,11 @@
 package ru.netology.radio;
 
 public class Radio {
+    private static final int MIN_STATION_NUMBER = 0;
+    private static final int MAX_STATION_NUMBER = 9;
+    private static final int MIN_VOLUME = 0;
+    private static final int MAX_VOLUME = 10;
+
     // Номер текущей (прослушиваемой) радиостанции
     private int stationNumber;
     // Громкость звука
@@ -11,10 +16,10 @@ public class Radio {
     }
 
     public void setStationNumber(int stationNumber) {
-        if(stationNumber > 9) {
-            stationNumber = 0;
-        } else if(stationNumber < 0) {
-            stationNumber = 9;
+        if(stationNumber > MAX_STATION_NUMBER) {
+            stationNumber = MIN_STATION_NUMBER;
+        } else if(stationNumber < MIN_STATION_NUMBER) {
+            stationNumber = MAX_STATION_NUMBER;
         }
 
         this.stationNumber = stationNumber;
@@ -25,10 +30,10 @@ public class Radio {
     }
 
     public void setVolume(int volume) {
-        if(volume > 10) {
-            volume = 10;
-        } else if(volume < 0) {
-            volume = 0;
+        if(volume > MAX_VOLUME) {
+            volume = MAX_VOLUME;
+        } else if(volume <MIN_VOLUME) {
+            volume = MIN_VOLUME;
         }
 
         this.volume = volume;
