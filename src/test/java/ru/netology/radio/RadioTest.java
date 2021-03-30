@@ -21,11 +21,11 @@ public class RadioTest {
         // Проверяем, если номер радиостанции < MIN
         int number = -1;
         // Ожидаемый результат
-        int actual = 9;
+        int expected = 9;
 
         radio.setStationNumber(number);
 
-        assertEquals(actual, radio.getStationNumber());
+        assertEquals(expected, radio.getStationNumber());
     }
 
     @Test
@@ -34,11 +34,11 @@ public class RadioTest {
         // Проверяем, если номер радиостанции > MAX
         int number = 10;
         // Ожидаемый результат
-        int actual = 0;
+        int expected = 0;
 
         radio.setStationNumber(number);
 
-        assertEquals(actual, radio.getStationNumber());
+        assertEquals(expected, radio.getStationNumber());
     }
 
     @Test
@@ -57,11 +57,11 @@ public class RadioTest {
         // Проверяем, если громкость < MIN
         int volume = -1;
         // Ожидаемый результат
-        int actual = 0;
+        int expected = 0;
 
         radio.setVolume(volume);
 
-        assertEquals(actual, radio.getVolume());
+        assertEquals(expected, radio.getVolume());
     }
 
     @Test
@@ -70,10 +70,10 @@ public class RadioTest {
         // Проверяем, если громкость > MAX
         int volume = 11;
         // Ожидаемый результат
-        int actual = 10;
+        int expected = 10;
 
         radio.setVolume(volume);
 
-        assertEquals(actual, radio.getVolume());
+        assertEquals(expected, radio.getVolume());
     }
 }
