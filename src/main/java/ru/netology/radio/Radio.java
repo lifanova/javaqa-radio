@@ -16,10 +16,14 @@ public class Radio {
     }
 
     public void setStationNumber(int stationNumber) {
-        if(stationNumber > MAX_STATION_NUMBER) {
-            stationNumber = MIN_STATION_NUMBER;
-        } else if(stationNumber < MIN_STATION_NUMBER) {
-            stationNumber = MAX_STATION_NUMBER;
+        if (stationNumber > MAX_STATION_NUMBER) {
+            this.stationNumber = MIN_STATION_NUMBER;
+            return;
+        }
+
+        if (stationNumber < MIN_STATION_NUMBER) {
+            this.stationNumber = MAX_STATION_NUMBER;
+            return;
         }
 
         this.stationNumber = stationNumber;
@@ -30,12 +34,62 @@ public class Radio {
     }
 
     public void setVolume(int volume) {
-        if(volume > MAX_VOLUME) {
-            volume = MAX_VOLUME;
-        } else if(volume <MIN_VOLUME) {
-            volume = MIN_VOLUME;
+        if (volume > MAX_VOLUME) {
+            this.volume = MAX_VOLUME;
+            return;
+        }
+
+        if (volume < MIN_VOLUME) {
+            this.volume = MIN_VOLUME;
+            return;
         }
 
         this.volume = volume;
+    }
+
+    /**
+     * Увеличить номер радиостанции (клиент нажал на кнопку next)
+     * */
+    public void increaseStationNumber(){
+        if(stationNumber == MAX_STATION_NUMBER) {
+            stationNumber = MIN_STATION_NUMBER;
+            return;
+        }
+
+        stationNumber++;
+    }
+
+    /**
+     * Уменьшить номер радиостанции (клиент нажал на кнопку prev)
+     * */
+    public void decreaseStationNumber(){
+        if(stationNumber == MIN_STATION_NUMBER) {
+            stationNumber = MAX_STATION_NUMBER;
+            return;
+        }
+
+        stationNumber--;
+    }
+
+    /**
+     * Увеличить громкость
+     * */
+    public void increaseVolume(){
+        if(volume == MAX_VOLUME) {
+            return;
+        }
+
+        volume++;
+    }
+
+    /**
+     * Уменьшить громкость
+     * */
+    public void decreaseVolume(){
+        if(volume == MIN_VOLUME) {
+            return;
+        }
+
+        volume--;
     }
 }
